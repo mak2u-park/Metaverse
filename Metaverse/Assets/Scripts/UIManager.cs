@@ -12,10 +12,12 @@ public enum UIState
     // FlappyPlane UI
     FPStart,
     FPInGame,
-    FPRestart
+    FPRestart,
 
     // JumpingKnight UI (예정)
-
+    JKStart,
+    JKInGame,
+    JKRestart
     // Dungeon UI (예정)
 
 }
@@ -32,25 +34,43 @@ public class UIManager : MonoBehaviour
     FPRestartUI FPrestartUI = null;
 
     // JumpingKnight UI (예정)
+    JKStartUI JKstartUI = null;
+    JKInGameUI JKInGameUI = null;
+    JKRestartUI JKrestartUI = null;
 
     // Dungeon UI (예정)
+
+
+    private string sceneName;
 
     private void Awake()
     {
         // 비활성화 되어있는 오브젝트들도 찾기 때문에 안전
-
-        // FlappyPlane UI
-        FPstartUI = GetComponentInChildren<FPStartUI>(true);
-        FPstartUI?.Init(this);
-        FPrestartUI = GetComponentInChildren<FPRestartUI>(true);
-        FPrestartUI?.Init(this);
-        FPinGameUI = GetComponentInChildren<FPInGameUI>(true);
-        FPinGameUI?.Init(this);
-
-        // JumpingKnight UI (예정)
-
-        // Dungeon UI (예정)
-
+        sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "FlappyPlane") 
+        {
+            // FlappyPlane UI
+            FPstartUI = GetComponentInChildren<FPStartUI>(true);
+            FPstartUI?.Init(this);
+            FPrestartUI = GetComponentInChildren<FPRestartUI>(true);
+            FPrestartUI?.Init(this);
+            FPinGameUI = GetComponentInChildren<FPInGameUI>(true);
+            FPinGameUI?.Init(this);
+        }
+        else if (sceneName == "JumpingKnight")  
+        {
+            // JumpingKnight UI (예정)
+            JKstartUI = GetComponentInChildren<JKStartUI>(true);
+            JKstartUI?.Init(this);
+            JKInGameUI = GetComponentInChildren<JKInGameUI>(true);
+            JKInGameUI?.Init(this);
+            JKrestartUI = GetComponentInChildren<JKRestartUI>(true);
+            JKrestartUI?.Init(this);
+        }
+        else if (sceneName == "Dungeon") 
+        {
+            // Dungeon UI (예정)
+        }
         ChangeState(UIState.FPRestart);
     }
 

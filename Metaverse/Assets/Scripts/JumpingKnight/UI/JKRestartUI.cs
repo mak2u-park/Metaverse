@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class JKRestartUI : MonoBehaviour
+public class JKRestartUI : BaseUI
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] TextMeshProUGUI bestScoreText;
+    [SerializeField] TextMeshProUGUI scoreText;
 
-    // Update is called once per frame
-    void Update()
+    public override void Init(UIManager uiManager)
     {
-        
+        base.Init(uiManager);
+
+        scoreText.text = miniGameManager.currentScore.ToString();
+        miniGameManager.bestscore = PlayerPrefs.GetInt("JKBestScore", 0);
+    }
+    protected override UIState GetUIState()
+    {
+        return UIState.FPStart;
     }
 }

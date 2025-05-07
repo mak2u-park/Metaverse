@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class JKInGameUI : MonoBehaviour
+public class JKInGameUI : BaseUI
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] TextMeshProUGUI bestScoreText;
+    [SerializeField] TextMeshProUGUI scoreText;
 
-    // Update is called once per frame
-    void Update()
+    public override void Init(UIManager uiManager)
     {
-        
+        base.Init(uiManager);
+
+    }
+    protected override UIState GetUIState()
+    {
+        return UIState.FPStart;
     }
 }
