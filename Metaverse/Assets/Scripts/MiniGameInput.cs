@@ -75,6 +75,7 @@ public class MiniGameInput : MonoBehaviour
                 SceneManager.LoadScene("JumpingKnight");
                 break;
             case 3:
+                // SceneManager.LoadScene("Dungeon");
                 break;
         }
 
@@ -82,7 +83,7 @@ public class MiniGameInput : MonoBehaviour
 
     public void EndMiniGame()
     {
-
+        // 미니게임 종료 후 메인 씬으로 돌아올때 원래 자리로 이동하는 것을 목표
     }
 
 }
