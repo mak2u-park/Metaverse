@@ -56,6 +56,12 @@ UIHandler는 MainMap 문 앞에 있는 NPC들의 UI를 관리한다. UI가 NPC �
 GameStart(), GameExit() 등 버튼 클릭시 호출되는 함수를 관리하는 것도 이 스크립트이다.<br>
 MiniGameInput 스크립트는 플레이어와 문의 접촉을 판별한다. <br>
 
+각 미니게임은 각각의 Player를 가지고 있으며 이 플레이어는 싱글톤 선언은 되어있지만 씬이 리로드될때 파괴되고 새로운 인스턴스가 생성된다.
+각 미니게임의 UI는 BaseUI를 상속받고 있으며 UIManager를 통해 관리받는다.
+
+FlappyPlane을 제외한 미니게임은 완성하지 못했지만 비슷한 방식으로 구현됐으리라 생각한다.
+JumpingKnight의 경우 player의 transform은 변하지 않고 배경을 뒤로 움직이는 식으로 구현하려고 했다.
+가시와 배경이 player쪽으로 이동하며 이를 점프로 피하는 식의 미니게임을 생각했는데 시간 부족으로 구현하지는 못했다.
 
 
 
