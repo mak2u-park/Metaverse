@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class BgLooper : MonoBehaviour
 {
+    public int numBgCount = 5;
+
     public int obstacleCount = 0;
     public Vector3 obstacleLastPosition = Vector3.zero;
 
@@ -22,6 +24,16 @@ public class BgLooper : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Triggered: " + collision.name);
+
+        if (collision.CompareTag("BackGround"))
+        {
+            float widthOfBgObject = ((BoxCollider2D)collision).size.x;
+            Vector3 pos = collision.transform.position;
+
+            pos.x += widthOfBgObject * numBgCount;
+            collision.transform.position = pos;
+            return;
+        }
 
         Obstacle obstacle = collision.GetComponent<Obstacle>();
         if (obstacle)

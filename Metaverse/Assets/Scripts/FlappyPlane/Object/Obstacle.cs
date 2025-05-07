@@ -17,11 +17,11 @@ public class Obstacle : MonoBehaviour
 
     public float widthPadding = 4f;
 
-    GameManager gameManager;
+    MiniGameManager miniGameManager;
 
     public void Start()
     {
-        gameManager = GameManager.Instance;
+        miniGameManager = MiniGameManager.Instance;
     }
 
     public Vector3 SetRandomPlace(Vector3 lastPosition, int obstacleCount)
@@ -41,9 +41,9 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Player player = collision.GetComponent<Player>();
-        if (player != null)
-            gameManager.AddScore(1);
+        FPPlayer FPplayer = collision.GetComponent<FPPlayer>();
+        if (FPplayer != null)
+            miniGameManager.AddScore(1);
     }
 
 }

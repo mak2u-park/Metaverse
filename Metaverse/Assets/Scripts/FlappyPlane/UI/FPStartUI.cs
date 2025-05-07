@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartUI : BaseUI
+public class FPStartUI : BaseUI
 {    
     public override void Init(UIManager uiManager)
     {
@@ -14,7 +14,7 @@ public class StartUI : BaseUI
 
     protected override UIState GetUIState()
     {
-        return UIState.Start;
+        return UIState.FPStart;
     }
 
     

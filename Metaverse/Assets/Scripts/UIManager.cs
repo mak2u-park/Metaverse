@@ -10,9 +10,9 @@ using UnityEngine.XR;
 public enum UIState
 {    
     // FlappyPlane UI
-    Start,
-    InGame,
-    Restart
+    FPStart,
+    FPInGame,
+    FPRestart
 
     // JumpingKnight UI (예정)
 
@@ -24,12 +24,12 @@ public class UIManager : MonoBehaviour
 {
     // 원래 강의에서는 싱글톤을 선언했지만 이번 개인 과제에서는 static을 사용하지 않는 것을 목표로 하였다.
 
-    UIState currentstate = UIState.Start;
+    UIState currentstate = UIState.FPStart;
 
     // FlappyPlane UI
-    StartUI startUI = null;
-    InGameUI inGameUI = null;
-    RestartUI restartUI = null;
+    FPStartUI FPstartUI = null;
+    FPInGameUI FPinGameUI = null;
+    FPRestartUI FPrestartUI = null;
 
     // JumpingKnight UI (예정)
 
@@ -40,18 +40,18 @@ public class UIManager : MonoBehaviour
         // 비활성화 되어있는 오브젝트들도 찾기 때문에 안전
 
         // FlappyPlane UI
-        startUI = GetComponentInChildren<StartUI>(true);
-        startUI?.Init(this);
-        restartUI = GetComponentInChildren<RestartUI>(true);
-        restartUI?.Init(this);
-        inGameUI = GetComponentInChildren<InGameUI>(true);
-        inGameUI?.Init(this);
+        FPstartUI = GetComponentInChildren<FPStartUI>(true);
+        FPstartUI?.Init(this);
+        FPrestartUI = GetComponentInChildren<FPRestartUI>(true);
+        FPrestartUI?.Init(this);
+        FPinGameUI = GetComponentInChildren<FPInGameUI>(true);
+        FPinGameUI?.Init(this);
 
         // JumpingKnight UI (예정)
 
         // Dungeon UI (예정)
 
-        ChangeState(UIState.Restart);
+        ChangeState(UIState.FPRestart);
     }
 
     
@@ -59,9 +59,9 @@ public class UIManager : MonoBehaviour
     public void ChangeState(UIState state)
     {
         currentstate = state; 
-        startUI?.SetActive(currentstate);
-        inGameUI?.SetActive(currentstate);
-        restartUI?.SetActive(currentstate);
+        FPstartUI?.SetActive(currentstate);
+        FPinGameUI?.SetActive(currentstate);
+        FPrestartUI?.SetActive(currentstate);
 
         // currentState가 어떤 state인지에 따라 동일한 UIState만 true 상태로 활성화
     }
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
     public void GameStart()
     {
         Time.timeScale = 1f;
-        ChangeState(UIState.InGame);
+        ChangeState(UIState.FPInGame);
     }
 
     public void MainMenu()

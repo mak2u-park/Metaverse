@@ -1303,6 +1303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16d64253cda9f24a96610efba424d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numBgCount: 5
   obstacleCount: 0
   obstacleLastPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &124857011
@@ -3329,7 +3330,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 741414363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af53c60cd86efe5469219b37e28999df, type: 3}
+  m_Script: {fileID: 11500000, guid: c08a0a2f2072cf04b9d050df34a7656d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentScore: 0
@@ -5272,7 +5273,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1363328197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac194f69e293a644a60032386ba6b4b, type: 3}
+  m_Script: {fileID: 11500000, guid: edc0a6c008e8ad94ca9032ce00ef0631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   flapForce: 6
@@ -6843,7 +6844,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2135905032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a01b2bff2d7c0104abee932cb802159f, type: 3}
+  m_Script: {fileID: 11500000, guid: 199bcb8a9fac4934b879d6319b6775cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2139744221

@@ -5,12 +5,12 @@ using UnityEngine;
 
 public abstract class BaseUI : MonoBehaviour
 {
-    protected GameManager gameManager;
+    protected MiniGameManager miniGameManager;
     protected UIManager uiManager;
 
     public virtual void Init(UIManager uiManager)
     {
-        gameManager = GameManager.Instance;
+        miniGameManager = MiniGameManager.Instance;
         this.uiManager = uiManager;
     }
     

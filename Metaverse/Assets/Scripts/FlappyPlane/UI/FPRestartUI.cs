@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class RestartUI : BaseUI
+public class FPRestartUI : BaseUI
 {
     [SerializeField] TextMeshProUGUI bestScoreText;
     [SerializeField] TextMeshProUGUI scoreText;
@@ -12,25 +12,25 @@ public class RestartUI : BaseUI
     {
         base.Init(uiManager);
 
-        scoreText.text = gameManager.currentScore.ToString();
-        gameManager.bestscore = PlayerPrefs.GetInt("FPBestScore", 0);
+        scoreText.text = miniGameManager.currentScore.ToString();
+        miniGameManager.bestscore = PlayerPrefs.GetInt("FPBestScore", 0);
     }
 
     protected override UIState GetUIState()
     {
-        return UIState.Restart;
+        return UIState.FPRestart;
         
     }
         
     private void Update()
     {
         // 이 코드를 Update에서 실행하는건 불필요하지 않을까?
-        scoreText.text = gameManager.currentScore.ToString();
-        if (gameManager.currentScore > gameManager.bestscore)
+        scoreText.text = miniGameManager.currentScore.ToString();
+        if (miniGameManager.currentScore > miniGameManager.bestscore)
         {
-            gameManager.bestscore = gameManager.currentScore;
+            miniGameManager.bestscore = miniGameManager.currentScore;
         }
-        bestScoreText.text = gameManager.bestscore.ToString();
+        bestScoreText.text = miniGameManager.bestscore.ToString();
     }
 
 }

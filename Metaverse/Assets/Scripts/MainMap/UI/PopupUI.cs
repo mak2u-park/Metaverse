@@ -27,13 +27,13 @@ public class PopupUI : MonoBehaviour
                     uiHandler.PopupUI(1, this.transform);
                     Debug.Log("Elf");
                     break;
-                case "NPC2":
+                case "Dwarf":
                     uiHandler.PopupUI(2, this.transform);
-                    Debug.Log("NPC2");
+                    Debug.Log("Dwarf");
                     break;
-                case "NPC3":
+                case "Angel":
                     uiHandler.PopupUI(3, this.transform);
-                    Debug.Log("NPC3");
+                    Debug.Log("Angel");
                     break;
             }
 

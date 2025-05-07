@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class FPPlayer : MonoBehaviour
 {
     Animator animator = null;
     Rigidbody2D _rigidbody = null;
@@ -16,11 +16,11 @@ public class Player : MonoBehaviour
 
     public bool godMode = false;
 
-    GameManager gameManager = null;
+    MiniGameManager miniGameManager = null;
 
     void Start()
     {
-        gameManager = GameManager.Instance; // 싱글톤에 접근할때는 start에서 하는 것이 좋다.
+        miniGameManager = MiniGameManager.Instance; // 싱글톤에 접근할때는 start에서 하는 것이 좋다.
 
         animator = transform.GetComponentInChildren<Animator>();
         _rigidbody = transform.GetComponent<Rigidbody2D>();
@@ -45,8 +45,8 @@ public class Player : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
                     // 게임 재시작
-                    gameManager.RestartGame();
-                    
+                    miniGameManager.RestartGame();
+                    // DontDestroyOnLoad 코드가 없기 때문에 MiniGameManager의 인스턴스를 파괴하고 다시 생성
                 }
             }
             else
@@ -94,6 +94,6 @@ public class Player : MonoBehaviour
         animator.SetInteger("IsDie", 1);
         isDead = true;
         deathCooldown = 1f;
-        gameManager.GameOver();
+        miniGameManager.GameOver();
     }
 }

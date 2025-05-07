@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourceController : MonoBehaviour
+    // player의 체력을 관리하는 스크립트
+    // JumpingKnight와 Dungeon에서 사용
 {
     [SerializeField] private float healthChangeDelay = .5f;
 
